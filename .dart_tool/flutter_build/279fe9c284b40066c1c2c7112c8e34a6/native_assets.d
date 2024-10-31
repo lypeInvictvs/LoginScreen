@@ -1,0 +1,1 @@
+ /home/invictus/Documentos/Projetos/login_screen/.dart_tool/flutter_build/279fe9c284b40066c1c2c7112c8e34a6/native_assets.yaml: 
