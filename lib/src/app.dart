@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_screen/src/screens/home_page.dart';
+import 'package:login_screen/src/screens/login_page.dart';
 
 class LoginApp extends StatelessWidget {
   const LoginApp({super.key});
@@ -13,7 +13,7 @@ class LoginApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
       ),
       home: SafeArea(
-        child: HomePage(),
+        child: LoginPage(),
       ),
     );
   }
