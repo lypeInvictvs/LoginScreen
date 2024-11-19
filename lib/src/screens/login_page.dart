@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login_screen/src/models/credencials_model.dart';
 import 'package:login_screen/src/shared/colors.dart';
 import 'package:login_screen/src/validations/credentials_validator.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -14,10 +15,20 @@ class _LoginPageState extends State<LoginPage> {
   final credential = CredentialsModel();
   final validator = CredentialsValidator();
   final formKey = GlobalKey<FormState>();
+  final linkProfileGithub = 'https://github.com/lypeInvictvs';
   bool clickEye = false;
   bool isLoginValid() {
     final result = validator.validate(credential);
     return result.isValid;
+  }
+
+  Future<void> _launchURL() async {
+    final Uri uri = Uri.parse(linkProfileGithub);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    } else {
+      throw "Unable to access link :( : $linkProfileGithub";
+    }
   }
 
   @override
@@ -123,12 +134,16 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          const Column(
+          Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 "All credits reserved. LypeInvictus",
                 style: TextStyle(color: Colors.white),
+              ),
+              GestureDetector(
+                onTap: _launchURL,
+                child: Text("LypeInvictus"),
               ),
             ],
           )
