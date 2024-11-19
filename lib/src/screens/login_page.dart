@@ -112,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                                       print(credential.showCredential());
                                     }
                                   : null,
-                              child: Text("Entrar"),
+                              child: const Text("Log in"),
                             );
                           },
                         ),
